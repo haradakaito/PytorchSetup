@@ -1,11 +1,11 @@
 # [Ubuntu22.04] CUDA + cuDNN + Pytorch 環境構築
 
-## 前準備
+## 0. 前準備
 
-## Nvidiaドライバのインストール
+## 1. Nvidiaドライバのインストール
 
-## CUDAのインストール
+## 2. CUDAのインストール
 
-## cuDNNのインストール
+## 3. cuDNNのインストール
 
-## Pytorchのインストール
+## 4. Pytorchのインストール
