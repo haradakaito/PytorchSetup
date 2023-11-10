@@ -1,2 +1,1 @@
-# PytorchSetup
-CUDA及びcuDNNをインストールし, Ubuntu22.04環境でPytorchをGPUで動作させるための備忘録
+# [Ubuntu22.04] CUDA + cuDNN + Pytorch 環境構築
