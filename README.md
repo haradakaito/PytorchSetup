@@ -66,5 +66,19 @@ CUDAが複数入っている場合は, 優先順位をCUDA11.7が一番高くな
 $ sudo update-alternatives --config cuda
 ```
 ## 3. cuDNNのインストール
-
+zlib1gをインストールする  
+```
+$ sudo apt-get install zlib1g
+```
+cuDNNのアーカイブ  
+https://developer.nvidia.com/rdp/cudnn-archive  
+にアクセスし, アーカイブファイルをダウンロード  
+アーカイブファイルのパスまで移動し, インストール  
+```
+$ cd ~/ダウンロード
+$ sudo dpkg -i cudnn-local-repo-ubuntu2204-8.5.0.96_1.0-1_amd64.deb
+$ sudo cp /var/cudnn-local-repo-ubuntu2204-8.5.0.96/cudnn-local-7ED72349-keyring.gpg /usr/share/keyrings/
+$ sudo apt update
+$ reboot
+```
 ## 4. Pytorchのインストール
