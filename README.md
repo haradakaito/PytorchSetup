@@ -72,13 +72,17 @@ $ sudo apt-get install zlib1g
 ```
 cuDNNのアーカイブ  
 https://developer.nvidia.com/rdp/cudnn-archive  
-にアクセスし, アーカイブファイルをダウンロード  
+にアクセスし, 11.x系アーカイブファイルをダウンロード  
 アーカイブファイルのパスまで移動し, インストール  
 ```
 $ cd ~/ダウンロード
-$ sudo dpkg -i cudnn-local-repo-ubuntu2204-8.5.0.96_1.0-1_amd64.deb
-$ sudo cp /var/cudnn-local-repo-ubuntu2204-8.5.0.96/cudnn-local-7ED72349-keyring.gpg /usr/share/keyrings/
+$ sudo dpkg -i cudnn-local-repo-ubuntu2204-*_1.0-1_amd64.deb
+$ sudo cp /var/cudnn-local-repo-ubuntu2204-*/cudnn-local-*-keyring.gpg /usr/share/keyrings/
 $ sudo apt update
 $ reboot
 ```
 ## 4. Pytorchのインストール
+CUDA11.7に対応したPytorchをインストールする  
+```
+$ conda install pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 pytorch-cuda=11.7 -c pytorch -c nvidia
+```
