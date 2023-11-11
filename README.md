@@ -30,7 +30,9 @@ $ nvidia-smi
 ※この時表示されるステータス画面の右上に記載されているCUDAのバージョンは, インストールしたNvidiaドライバで対応しているCUDAの最新バージョンのことであり, インストールされているCUDAのバージョンではない  
 ## 2. CUDAのインストール
 CUDAは11.7, 11.8, 12.1を推奨する(今回は11.7をインストールする)  
-CUDA11.7のアーカイブURL( https://developer.nvidia.com/cuda-11-7-0-download-archive?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=22.04&target_type=deb_network )にアクセスし, Linux > x86_64 > Ubuntu > 22.04 > deb(local)を順に選択  
+CUDA11.7のアーカイブ  
+https://developer.nvidia.com/cuda-11-7-0-download-archive?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=22.04&target_type=deb_network  
+にアクセスし, Linux > x86_64 > Ubuntu > 22.04 > deb(local)を順に選択  
 表示されるコマンド(下記)に従って, 入力していく  
 ※ この時, keyコードは自分で確認して変更することと, インストールコマンドの際にCUDAのバージョンを指定することに注意！  
 ```
@@ -43,7 +45,26 @@ $ sudo apt-get update
 $ sudo apt-get -y install cuda-11-7
 $ reboot
 ```
-
+任意の仮想環境へ戻り, パスを通す    
+```
+$ conda activate *
+$ nano ~/.bashrc
+```
+末尾に以下を追加する  
+```
+export PATH=/usr/local/cuda:/usr/local/cuda-11.7/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/lib:/usr/local/cuda-11.7/lib64:$LD_LIBRARY_PATH
+```
+sourceした後, インストールを確認する  
+```
+$ source ~/.bashrc
+$ conda activate *
+$ nvcc -V
+```
+CUDAが複数入っている場合は, 優先順位をCUDA11.7が一番高くなるように変更しておく  
+```
+$ sudo update-alternatives --config cuda
+```
 ## 3. cuDNNのインストール
 
 ## 4. Pytorchのインストール
